@@ -1,0 +1,2 @@
+# Core
+MCSV-Networkのリポジトリでよく使われるfunctionとかをまとめています
