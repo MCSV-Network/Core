@@ -1,1 +1,10 @@
 #Created by ringoXD
+
+#?debug log
+function debug(p: player, t: text, m: text):
+	if {_m} is "info":
+		send "&7[debug] %{_t}%" to {_p}
+	if {_m} is "warn":
+		send "&7[debug] &e%{_t}%" to {_p}
+	if {_m} is "error":
+		send "&7[debug] &c%{_t}%" to {_p}
