@@ -2,9 +2,21 @@
 
 #?debug log
 function debug(p: player, t: text, m: text):
+	#*INFO
 	if {_m} is "info":
-		send "&7[debug] %{_t}%" to {_p}
+		send "&7[debug-info] %{_t}%" to {_p}
+	if {_m} is "info-red":
+		send "&7[debug-info] &c%{_t}%" to {_p}
+	if {_m} is "info-blue":
+		send "&7[debug-info] &b%{_t}%" to {_p}
+	if {_m} is "info-green":
+		send "&7[debug-info] &a%{_t}%" to {_p}
+	#*WARN
 	if {_m} is "warn":
-		send "&7[debug] &e%{_t}%" to {_p}
+		send "&7[debug-warn] &e%{_t}%" to {_p}
+	#*ERR
 	if {_m} is "error":
-		send "&7[debug] &c%{_t}%" to {_p}
+		send "&e[debug-error] &c%{_t}%" to {_p}
+	#*CRIT
+	if {_m} is "crit":	
+		send "&c[debug-crit] &c&l%{_t}%" to {_p}
