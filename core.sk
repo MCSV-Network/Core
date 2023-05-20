@@ -20,3 +20,14 @@ function debug(p: player, t: text, m: text):
 	#*CRIT
 	if {_m} is "crit":	
 		send "&c[debug-crit] &c&l%{_t}%" to {_p}
+
+#?random number(but 5 digits only because my skill issue lol)
+function random5num(p: player):
+	set {_n1} to random integer between 0 and 9
+	set {_n2} to random integer between 0 and 9
+	set {_n3} to random integer between 0 and 9
+	set {_n4} to random integer between 0 and 9
+	set {_n5} to random integer between 0 and 9
+	set {_num} to "%{_n1}%%{_n2}%%{_n3}%%{_n4}%%{_n5}%" 
+	send "&7[debug] num: &a%{_num}%" to {_p}
+	return {_num}
