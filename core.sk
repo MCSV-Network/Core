@@ -30,4 +30,4 @@ function random5num(p: player):
 	set {_n5} to random integer between 0 and 9
 	set {_num} to "%{_n1}%%{_n2}%%{_n3}%%{_n4}%%{_n5}%" 
 	send "&7[debug] num: &a%{_num}%" to {_p}
-	return {_num}
+	return "%{_num}%"
