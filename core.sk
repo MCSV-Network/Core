@@ -31,3 +31,12 @@ function random5num(p: player) :: text:
 	set {_num} to "%{_n1}%%{_n2}%%{_n3}%%{_n4}%%{_n5}%" 
 	send "&7[debug] num: &a%{_num}%" to {_p}
 	return {_num}
+
+#*Better Randomnum generator(l is length)
+#!This isn't parsed as number.
+function randomnumgen(l: number) ::text:
+	set {_num} to ""
+	loop {_l} times:
+		set {_x} to random integer between 0 and 9
+		set {_num} to "%{_num}%%{_x}%"
+	return {_num}
