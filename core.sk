@@ -21,17 +21,6 @@ function debug(p: player, t: text, m: text):
 	if {_m} is "crit":	
 		send "&c[debug-crit] &c&l%{_t}%" to {_p}
 
-#?random number(but 5 digits only because my skill issue lol)
-function random5num(p: player) :: text:
-	set {_n1} to random integer between 0 and 9
-	set {_n2} to random integer between 0 and 9
-	set {_n3} to random integer between 0 and 9
-	set {_n4} to random integer between 0 and 9
-	set {_n5} to random integer between 0 and 9
-	set {_num} to "%{_n1}%%{_n2}%%{_n3}%%{_n4}%%{_n5}%" 
-	send "&7[debug] num: &a%{_num}%" to {_p}
-	return {_num}
-
 #?randomposparticle(entity, particle, extra, particle-amount, loop-time, xz-range, y-range)
 function randomposparticle(p: entity, pt: text, extra: number = 0.05, pa: number = 10, loop: number = 10, rxz: number = 1 ry: number = 1):
 	loop {_loop} times:
@@ -42,3 +31,11 @@ function randomposparticle(p: entity, pt: text, extra: number = 0.05, pa: number
 		set {_locp} to location({_x}, {_y}, {_z}, {_w})
 		draw {_pa} {_pt} at {_locp} with extra {_extra}
 		wait a tick
+#*Better Randomnum generator(l is length)
+#!This isn't parsed as number.
+function randomnumgen(l: number) ::text:
+	set {_num} to ""
+	loop {_l} times:
+		set {_x} to random integer between 0 and 9
+		set {_num} to "%{_num}%%{_x}%"
+	return {_num}
