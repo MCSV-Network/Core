@@ -22,7 +22,7 @@ function debug(p: player, t: text, m: text):
 		send "&c[debug-crit] &c&l%{_t}%" to {_p}
 
 #?randomposparticle(entity, particle, extra, particle-amount, loop-time, xz-range, y-range)
-function randomposparticle(p: entity, pt: text, extra: number = 0.05, pa: number = 10, loop: number = 10, rxz: number = 1 ry: number = 1):
+function randomposparticle(p: entity, pt: text, extra: number = 0.05, pa: number = 10, loop: number = 10, rxz: number = 1, ry: number = 1):
 	set {_minus.rxz} to 0 - {_rxz}
 	loop {_loop} times:
 		set {_x} to {_p}'s x-pos + random integer from {_minus.rxz} to {_rxz}
