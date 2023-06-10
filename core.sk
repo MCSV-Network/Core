@@ -10,16 +10,16 @@ function debug(p: player, t: text, m: text = "info"):
 	#*INFO
 	if {_m} is "info":
 		send "&7[debug-info] %{_t}%" to {_p}
-		write "[%now% DEBUG- - %{_p}%] %{_t}%" at line (file "plugins/Skript/scripts/Core-sk/log.txt"'s line count + 1) to file "plugins/Skript/scripts/Core-sk/log.txt"
+		write "[%now% DEBUG-INFO - %{_p}%] %{_t}%" at line (file "plugins/Skript/scripts/Core-sk/log.txt"'s line count + 1) to file "plugins/Skript/scripts/Core-sk/log.txt"
 	if {_m} is "info-red":
 		send "&7[debug-info] &c%{_t}%" to {_p}
-		write "[%now% DEBUG- - %{_p}%] %{_t}%" at line (file "plugins/Skript/scripts/Core-sk/log.txt"'s line count + 1) to file "plugins/Skript/scripts/Core-sk/log.txt"
+		write "[%now% DEBUG-INFO - %{_p}%] %{_t}%" at line (file "plugins/Skript/scripts/Core-sk/log.txt"'s line count + 1) to file "plugins/Skript/scripts/Core-sk/log.txt"
 	if {_m} is "info-blue":
 		send "&7[debug-info] &b%{_t}%" to {_p}
-		write "[%now% DEBUG- - %{_p}%] %{_t}%" at line (file "plugins/Skript/scripts/Core-sk/log.txt"'s line count + 1) to file "plugins/Skript/scripts/Core-sk/log.txt"
+		write "[%now% DEBUG-INFO - %{_p}%] %{_t}%" at line (file "plugins/Skript/scripts/Core-sk/log.txt"'s line count + 1) to file "plugins/Skript/scripts/Core-sk/log.txt"
 	if {_m} is "info-green":
 		send "&7[debug-info] &a%{_t}%" to {_p}
-		write "[%now% DEBUG- - %{_p}%] %{_t}%" at line (file "plugins/Skript/scripts/Core-sk/log.txt"'s line count + 1) to file "plugins/Skript/scripts/Core-sk/log.txt"
+		write "[%now% DEBUG-INFO - %{_p}%] %{_t}%" at line (file "plugins/Skript/scripts/Core-sk/log.txt"'s line count + 1) to file "plugins/Skript/scripts/Core-sk/log.txt"
 	#*WARN
 	if {_m} is "warn":
 		send "&7[debug-warn] &e%{_t}%" to {_p}
