@@ -1,19 +1,42 @@
 #Created by ringoXD
 
+#!TAB COMPLETE
+on tab complete of "/skcore":
+	set tab completions for position 1 to "purgelogs", "showlogs" and "help"
+#!TAB COMPLETE
+
 #?debug log
 command /skcore [<text>]:
 	permission: admin
 	trigger:
-		if arg-1 is not set:
+		if arg-1 is not set or "help":
 			send "&bCore&3.sk &7- &bCommands:"
 			send "&7/skcore &bpurgelogs&f: &3Purge log file."
 			send "&7/skcore &bshowlog&f: &3Show logs."
+			stop
 		if arg-1 is "purgelogs":
 			send "&7Deleting log.txt..."
-			delete file 
+			delete file "plugins/Skript/scripts/Core-sk/log.txt"
+			send "&aSuccess!"
+			stop
+		if arg-1 is "showlogs":
+			set {_path} to "plugins/Skript/scripts/Core-sk/log.txt"
+			set {_l} to line count of file {_path}
+			send "&7Core.sk debug function logs(%{_l}%lines):"
+			set {_n} to 1
+			loop {_l} times:
+				set {_x} to line {_n} in file {_path}
+				send "&7{_x}"
+				add 1 to {_n}
+				wait a tick
+			send "&7END"
+			stop
+		else:
+			send "&cUnknown command."
 function debug(p: player, t: text, m: text = "info"):
 	if file "plugins/Skript/scripts/Core-sk/log.txt" doesn't exist:
-		send "Generating debuglog.txt..." to console
+		send "[!] log.txt does not exist!!"
+		send "Generating log.txt..." to console
 		create file "plugins/Skript/scripts/Core-sk/log.txt"
 		write "=============================================================================" at line (file "plugins/Skript/scripts/Core-sk/log.txt"'s line count + 1) to file "plugins/Skript/scripts/Core-sk/log.txt"
 		write "Core.sk - log file" at line (file "plugins/Skript/scripts/Core-sk/log.txt"'s line count + 1) to file "plugins/Skript/scripts/Core-sk/log.txt"
