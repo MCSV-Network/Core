@@ -5,10 +5,14 @@ command /skcore [<text>]:
 	permission: admin
 	trigger:
 		if arg-1 is not set:
-			send "&bCore&3.sk &7- &bCommands"
-			send "&3/skcore &ba &7- 作成中"
+			send "&bCore&3.sk &7- &bCommands:"
+			send "&7/skcore &bpurgelogs&f: &3Purge log file."
+			send "&7/skcore &bshowlog&f: &3Show logs."
+		if arg-1 is "purgelogs":
+			send "&7Deleting log.txt..."
+			delete file 
 function debug(p: player, t: text, m: text = "info"):
-	if file "plugins/Skript/scripts/Core-sk/log.txt" is not exists:
+	if file "plugins/Skript/scripts/Core-sk/log.txt" doesn't exist:
 		send "Generating debuglog.txt..." to console
 		create file "plugins/Skript/scripts/Core-sk/log.txt"
 		write "=============================================================================" at line (file "plugins/Skript/scripts/Core-sk/log.txt"'s line count + 1) to file "plugins/Skript/scripts/Core-sk/log.txt"
