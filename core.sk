@@ -33,6 +33,31 @@ function debug(p: player, t: text, m: text = "info"):
 		send "&c[debug-crit] &c&l%{_t}%" to {_p}
 		write "[%now% DEBUG-CRIT - %{_p}%] %{_t}%" at line (file "plugins/Skript/scripts/Core-sk/log.txt"'s line count + 1) to file "plugins/Skript/scripts/Core-sk/log.txt"
 
+#?debug for console
+function debugforconsole(t: text, m: text = "info"):
+	if {core_debug.is_first_time} is not set:
+		send "Generating debuglog.txt..." to console
+		add "log file for debug function -" to skutil yaml list "Core - debuglog file" of file "plugins/Skript/scripts/Core-sk/log.txt"
+		set {core_debug.is_first_time} to false
+		send "Success!" to console
+	#*INFO
+	if {_m} is "info":
+		send "&7[debug-info] %{_t}%" to console
+		write "[%now% DEBUG-INFO - CONSOLE] %{_t}%" at line (file "plugins/Skript/scripts/Core-sk/log.txt"'s line count + 1) to file "plugins/Skript/scripts/Core-sk/log.txt"
+	#*WARN
+	if {_m} is "warn":
+		send "&7[debug-warn] &e%{_t}%" to console
+		write "[%now% DEBUG-WARN - CONSOLE] %{_t}%" at line (file "plugins/Skript/scripts/Core-sk/log.txt"'s line count + 1) to file "plugins/Skript/scripts/Core-sk/log.txt"
+	#*ERR
+	if {_m} is "error":
+		send "&e[debug-error] &c%{_t}%" to console
+		write "[%now% DEBUG-ERROR - CONSOLE] %{_t}%" at line (file "plugins/Skript/scripts/Core-sk/log.txt"'s line count + 1) to file "plugins/Skript/scripts/Core-sk/log.txt"
+	#*CRIT
+	if {_m} is "crit":	
+		send "&c[debug-crit] &c&l%{_t}%" to console
+		write "[%now% DEBUG-CRIT - CONSOLE] %{_t}%" at line (file "plugins/Skript/scripts/Core-sk/log.txt"'s line count + 1) to file "plugins/Skript/scripts/Core-sk/log.txt"
+
+
 #*Better Randomnum generator(l is length)
 #!This isn't parsed as number.
 function randomnumgen(l: number) :: text:
