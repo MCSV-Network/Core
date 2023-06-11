@@ -33,6 +33,7 @@ command /skcore [<text>]:
 			stop
 		else:
 			send "&cUnknown command."
+
 function debug(p: player, t: text, m: text = "info"):
 	if file "plugins/Skript/scripts/Core-sk/log.txt" doesn't exist:
 		send "[!] log.txt does not exist!!"
