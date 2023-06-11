@@ -31,7 +31,7 @@ command /skcore [<text>]:
 			set {_n} to 1
 			loop {_l} times:
 				set {_x} to line {_n} in file {_path}
-				send "&7{_x}"
+				send "&7%{_x}%"
 				add 1 to {_n}
 				wait a tick
 			send "&7END"
