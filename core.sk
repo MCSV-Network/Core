@@ -78,10 +78,15 @@ function debug(p: player, t: text, m: text = "info"):
 
 #?debug for console
 function debugforconsole(t: text, m: text = "info"):
-	if {core_debug.is_first_time} is not set:
-		send "Generating debuglog.txt..." to console
-		add "log file for debug function -" to skutil yaml list "Core - debuglog file" of file "plugins/Skript/scripts/Core-sk/log.txt"
-		set {core_debug.is_first_time} to false
+	if file "plugins/Skript/scripts/Core-sk/log.txt" doesn't exist:
+		send "[!] log.txt does not exist!!" to console
+		send "Generating log.txt..." to console
+		create file "plugins/Skript/scripts/Core-sk/log.txt"
+		write "=============================================================================" at line (file "plugins/Skript/scripts/Core-sk/log.txt"'s line count + 1) to file "plugins/Skript/scripts/Core-sk/log.txt"
+		write "Core.sk - log file" at line (file "plugins/Skript/scripts/Core-sk/log.txt"'s line count + 1) to file "plugins/Skript/scripts/Core-sk/log.txt"
+		write "When the debug function is executed, it is written to this file as a log." at line (file "plugins/Skript/scripts/Core-sk/log.txt"'s line count + 1) to file "plugins/Skript/scripts/Core-sk/log.txt"
+		write "=============================================================================" at line (file "plugins/Skript/scripts/Core-sk/log.txt"'s line count + 1) to file "plugins/Skript/scripts/Core-sk/log.txt"
+		write "" at line (file "plugins/Skript/scripts/Core-sk/log.txt"'s line count + 1) to file "plugins/Skript/scripts/Core-sk/log.txt"
 		send "Success!" to console
 	#*INFO
 	if {_m} is "info":
