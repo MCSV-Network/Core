@@ -1,6 +1,12 @@
 #Created by ringoXD
 
 #?debug log
+command /skcore [<text>]:
+	permission: admin
+	trigger:
+		if arg-1 is not set:
+			send "&bCore&3.sk &7- &bCommands"
+			send "&3/skcore &ba &7- 作成中"
 function debug(p: player, t: text, m: text = "info"):
 	if file "plugins/Skript/scripts/Core-sk/log.txt" is not exists:
 		send "Generating debuglog.txt..." to console
