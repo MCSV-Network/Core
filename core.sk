@@ -9,7 +9,12 @@ on tab complete of "/skcore":
 command /skcore [<text>]:
 	permission: admin
 	trigger:
-		if arg-1 is not set or "help":
+		if arg-1 is not set:
+			send "&bCore&3.sk &7- &bCommands:"
+			send "&7/skcore &bpurgelogs&f: &3Purge log file."
+			send "&7/skcore &bshowlog&f: &3Show logs."
+			stop
+		if arg-1 is "help":
 			send "&bCore&3.sk &7- &bCommands:"
 			send "&7/skcore &bpurgelogs&f: &3Purge log file."
 			send "&7/skcore &bshowlog&f: &3Show logs."
@@ -36,7 +41,7 @@ command /skcore [<text>]:
 
 function debug(p: player, t: text, m: text = "info"):
 	if file "plugins/Skript/scripts/Core-sk/log.txt" doesn't exist:
-		send "[!] log.txt does not exist!!"
+		send "[!] log.txt does not exist!!" to console
 		send "Generating log.txt..." to console
 		create file "plugins/Skript/scripts/Core-sk/log.txt"
 		write "=============================================================================" at line (file "plugins/Skript/scripts/Core-sk/log.txt"'s line count + 1) to file "plugins/Skript/scripts/Core-sk/log.txt"
