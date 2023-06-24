@@ -133,10 +133,3 @@ command /skcorenotify [<text>]:
 		set {_x} to arg-1
 		notification(player, {_x})
 		send "Success (%{_x}%)"
-
-command /skcorenotifylist:
-	permission: admin
-	trigger:
-		loop {notify.%player%::*}:
-			debug({_p}, "value(index): %{notify.%player%::%loop-index%}%")
-			wait a tick
