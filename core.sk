@@ -114,3 +114,20 @@ function randomnumgen(l: number) :: text:
 		set {_x} to random integer between 0 and 9
 		set {_num} to "%{_num}%%{_x}%"
 	return {_num}
+
+function notification(p: player, t: text):
+	set {_t2} to {_t} parsed as text
+	add {_t2} to {notify.%{_p}%::*}
+	set {_notify} to join {notify.%{_p}%::*} by " "
+	set action bar of {_p} to "%{_notify}%"
+	notification-timer({_p}, {_t2})
+
+function notification-timer(p: player, x: text):
+	wait 5 seconds
+	remove {_x} from {notify.%{_p}%::*}
+
+command /skcorenotify [<text>]:
+	permission: admin
+	trigger:
+		set {_x} to arg-1
+		notification(player, {_x})
