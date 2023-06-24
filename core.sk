@@ -120,6 +120,7 @@ function notification(p: player, t: text):
 	add {_t2} to {notify.%{_p}%::*}
 	set {_notify} to join {notify.%{_p}%::*} by " "
 	set action bar of {_p} to "%{_notify}%"
+	debugforconsole("notify list: %{notify.%{_p}%::*}%")
 	notification-timer({_p}, {_t2})
 
 function notification-timer(p: player, x: text):
@@ -131,3 +132,4 @@ command /skcorenotify [<text>]:
 	trigger:
 		set {_x} to arg-1
 		notification(player, {_x})
+		send "Success (%{_x}%)"
