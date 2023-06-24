@@ -116,14 +116,14 @@ function randomnumgen(l: number) :: text:
 	return {_num}
 
 function notification(p: player, t: text):
-	set {_t2} to {_t} parsed as text
+	set {_t2} to {_t}
 	add {_t2} to {notify.%{_p}%::*}
 	set {_notify} to join {notify.%{_p}%::*} by " "
 	set action bar of {_p} to "%{_notify}%"
 	debugforconsole("notify list: %{notify.%{_p}%::*}%")
-	notification-timer({_p}, {_t2})
+	notificationTimer({_p}, {_t2})
 
-function notification-timer(p: player, x: text):
+function notificationTimer(p: player, x: text):
 	wait 5 seconds
 	remove {_x} from {notify.%{_p}%::*}
 
