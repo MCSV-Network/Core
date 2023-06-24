@@ -39,6 +39,7 @@ command /skcore [<text>]:
 		else:
 			send "&cUnknown command."
 
+#*Debug log function (plugins/Skript/scripts/Core-sk/log.txt)
 function debug(p: player, t: text, m: text = "info"):
 	if file "plugins/Skript/scripts/Core-sk/log.txt" doesn't exist:
 		send "[!] log.txt does not exist!!" to console
@@ -115,6 +116,7 @@ function randomnumgen(l: number) :: text:
 		set {_num} to "%{_num}%%{_x}%"
 	return {_num}
 
+#*Notification function
 function notification(p: player, t: text):
 	set {_t2} to {_t}
 	add {_t2} to {notify.%{_p}%::*}
@@ -122,11 +124,11 @@ function notification(p: player, t: text):
 	set action bar of {_p} to "%{_notify}%"
 	debugforconsole("notify list: %{notify.%{_p}%::*}%")
 	notificationTimer({_p}, {_t2})
-
+#*Notification Timer
 function notificationTimer(p: player, x: text):
 	wait 5 seconds
 	remove {_x} from {notify.%{_p}%::*}
-
+#*For Notification test
 command /skcorenotify [<text>]:
 	permission: admin
 	trigger:
