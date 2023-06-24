@@ -118,7 +118,7 @@ function randomnumgen(l: number) :: text:
 function notification(p: player, t: text):
 	set {_t2} to {_t}
 	add {_t2} to {notify.%{_p}%::*}
-	set {_notify} to join {notify.%{_p}%::*} by " "
+	set {_notify} to join {notify.%{_p}%::*} by " &7|&r "
 	set action bar of {_p} to "%{_notify}%"
 	debugforconsole("notify list: %{notify.%{_p}%::*}%")
 	notificationTimer({_p}, {_t2})
