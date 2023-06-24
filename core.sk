@@ -138,6 +138,5 @@ command /skcorenotifylist:
 	permission: admin
 	trigger:
 		loop {notify.%player%::*}:
-			debug({_p}, "value(value): %{notify.%player%::%loop-value%}%")
 			debug({_p}, "value(index): %{notify.%player%::%loop-index%}%")
 			wait a tick
