@@ -138,19 +138,20 @@ command /skcorenotify [<text>]:
 
 #*time, but it's japanese
 function japanesetime(x: timespan) :: timespan:
-	debugforconsole("before: %{_x}%")
-	replace all "day" in {_x} with "日"
-	replace all "days" in {_x} with "日"
-	debugforconsole("replacing %{_x}%")
-	replace all "hour" in {_x} with "時間"
-	replace all "hours" in {_x} with "時間"
-	debugforconsole("replacing %{_x}%")
-	replace all "minute" in {_x} with "分"
-	replace all "minutes" in {_x} with "分"
-	debugforconsole("replacing %{_x}%")
-	replace all "second" in {_x} with "秒"
-	replace all "seconds" in {_x} with "秒"
-	debugforconsole("replacing %{_x}%")
-	replace all "and" in {_x} with ""
-	debugforconsole("after: %{_x}%")
-	return {_x}
+	set {_x2} to {_x}
+	debugforconsole("before: %{_x2}%")
+	replace all "day" in {_x2} with "日"
+	replace all "days" in {_x2} with "日"
+	debugforconsole("replacing %{_x2}%")
+	replace all "hour" in {_x2} with "時間"
+	replace all "hours" in {_x2} with "時間"
+	debugforconsole("replacing %{_x2}%")
+	replace all "minute" in {_x2} with "分"
+	replace all "minutes" in {_x2} with "分"
+	debugforconsole("replacing %{_x2}%")
+	replace all "second" in {_x2} with "秒"
+	replace all "seconds" in {_x2} with "秒"
+	debugforconsole("replacing %{_x2}%")
+	replace all "and" in {_x2} with ""
+	debugforconsole("after: %{_x2}%")
+	return {_x2}
