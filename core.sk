@@ -137,14 +137,15 @@ command /skcorenotify [<text>]:
 		send "Success (%{_x}%)"
 
 #*time, but it's japanese
-function japanesetimespan(time: timespan) :: text:
+#*Sorry, I can't make return function (skill issue)
+function japanesetimespan(p: player, time: timespan):
 	set {_x} to "%{_time}%"
-	debugforconsole("set2 %{_x}%")
+	debug({_p}, "set %{_x}%")
 	replace all " seconds" or " second" with "秒" in {_x}
 	replace all " minutes" or " minute" with "分" in {_x}
 	replace all " hours" or " hour" with "時間" in {_x}
 	replace all " days" or " day" with "日" in {_x}
 	replace all "and" with "" in {_x}
 	set {_x2} to "%{_x}%"
-	debugforconsole("result: %{_x2}%")
-	return {_x2}
+	debug({_p}, "result: %{_x2}%")
+	set {jts_result.%{_p}%} to {_x2}
