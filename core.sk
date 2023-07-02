@@ -145,5 +145,6 @@ function japanesetimespan(time: timespan) :: text:
 	replace all " hours" or " hour" with "時間" in {_x}
 	replace all " days" or " day" with "日" in {_x}
 	replace all "and" with "" in {_x}
-	debugforconsole("result: %{_x}%")
-	return {_x}
+	set {_x2} to "%{_x}%"
+	debugforconsole("result: %{_x2}%")
+	return {_x2}
