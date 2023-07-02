@@ -153,5 +153,4 @@ function japanesetime(x: timespan) :: timespan:
 	debugforconsole("replacing %{_x}%")
 	replace all "and" in {_x} with ""
 	debugforconsole("after: %{_x}%")
-	set {_result} to {_x}
-	return {_result}
+	return {_x}
