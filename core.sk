@@ -138,9 +138,7 @@ command /skcorenotify [<text>]:
 
 #*time, but it's japanese
 function japanesetimespan(time: timespan) :: timespan:
-	set {_x} to "%{_time}% seconds" parsed as timespan
-	debugforconsole("set %{_x}%")
-	set {_x} to "%{_x}%"
+	set {_x} to "%{_time}%"
 	debugforconsole("set2 %{_x}%")
 	replace all " seconds" or " second" with "秒" in {_x}
 	replace all " minutes" or " minute" with "分" in {_x}
