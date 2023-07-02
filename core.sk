@@ -137,7 +137,7 @@ command /skcorenotify [<text>]:
 		send "Success (%{_x}%)"
 
 #*time, but it's japanese
-function japanesetime(x: date) :: date:
+function japanesetime(x: timespan) :: timespan:
 	debugforconsole("before: %{_x}%")
 	replace all "day" in {_x} with "日"
 	replace all "days" in {_x} with "日"
