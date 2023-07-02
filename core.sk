@@ -137,11 +137,11 @@ command /skcorenotify [<text>]:
 		send "Success (%{_x}%)"
 
 #*time, but it's japanese
-function japanesetimespan(n: timespan) :: timespan:
-	set {_a} to "%{_n}% seconds" parsed as timespan
-	set {_a} to "%{_a}%"
-	replace all " seconds" or " second" with "秒" in {_a}
-	replace all " minutes" or " minute" with "分" in {_a}
-	replace all " hours" or " hour" with "時間" in {_a}
-	replace all " days" or " day" with "日" in {_a}
-	return {_a}
+function japanesetimespan(time: timespan) :: timespan:
+	set {_x} to "%{_time}% seconds" parsed as timespan
+	set {_x} to "%{_x}%"
+	replace all " seconds" or " second" with "秒" in {_x}
+	replace all " minutes" or " minute" with "分" in {_x}
+	replace all " hours" or " hour" with "時間" in {_x}
+	replace all " days" or " day" with "日" in {_x}
+	return {_x}
