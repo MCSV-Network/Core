@@ -10,9 +10,9 @@ command /skcore [<text>]:
 	permission: admin
 	trigger:
 		if arg-1 is not set:
-			send "&bCore&3.sk &7- &bCommands:"
-			send "&7/skcore &bpurgelogs&f: &3Purge log file."
-			send "&7/skcore &bshowlog&f: &3Show logs."
+			send "&bCore&3.sk &7- Utility Skript Project"
+			send "&7Created by ringoXD &7(<link:https://github.com/MCSV-Network/Core>&b&nGithub&7)"
+			send "&7/skcore &bhelp &7to show commands."
 			stop
 		if arg-1 is "help":
 			send "&bCore&3.sk &7- &bCommands:"
