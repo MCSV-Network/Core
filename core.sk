@@ -93,6 +93,7 @@ function debug(p: player, t: text, m: text = "info"):
 		write "=============================================================================" at line (file "plugins/Skript/scripts/Core-sk/log.txt"'s line count + 1) to file "plugins/Skript/scripts/Core-sk/log.txt"
 		write "" at line (file "plugins/Skript/scripts/Core-sk/log.txt"'s line count + 1) to file "plugins/Skript/scripts/Core-sk/log.txt"
 		send "Success!" to console
+	set {_t} to colored {_t}
 	#*INFO
 	if {_m} is "info":
 		send "&7[debug-info] %{_t}%" to {_p}
