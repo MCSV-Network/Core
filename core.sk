@@ -160,16 +160,16 @@ function randomnumgen(l: number) :: text:
 	return {_num}
 
 #*Notification function
-function notification(p: player, t: text):
+function notification(p: player, t: text, s: number = 5):
 	set {_t2} to {_t}
 	add {_t2} to {notify.%{_p}%::*}
 	set {_notify} to join {notify.%{_p}%::*} by " &7|&r "
 	set action bar of {_p} to "%{_notify}%"
 	debugforconsole("notify list: %{notify.%{_p}%::*}%")
-	notificationTimer({_p}, {_t2})
+	notificationTimer({_p}, {_t2}, {_s})
 #*Notification Timer
-function notificationTimer(p: player, x: text):
-	wait 5 seconds
+function notificationTimer(p: player, x: text, s: number):
+	wait {_s} seconds
 	remove {_x} from {notify.%{_p}%::*}
 #*For Notification test
 command /skcorenotify [<text>]:
