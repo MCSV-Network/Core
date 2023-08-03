@@ -1,9 +1,39 @@
 #Created by ringoXD
 
+
+#!=======[DO NOT EDIT]=======
+options:
+	version: 1.0.9
+	cskapi: https://github.com/MCSV-Network/Core/raw/main/cskversion
+#!=======[DO NOT EDIT]=======
+
 #!TAB COMPLETE
 on tab complete of "/skcore":
 	set tab completions for position 1 to "purgelogs", "showlogs" and "help"
 #!TAB COMPLETE
+
+on skript load:
+	send "&b=================" to console
+	send "&bCore (v{@version})" to console
+	send "Created by ringoXD" to console
+	send "Github: &bhttps://github.com/MCSV-Network/Core" to console
+	send "&b=================" to console
+
+	#*CHECK UPDATE===
+	send "[Core] Checking Updates..." to console
+	set {_v} to text from url "{@hv3api}"
+	if {_v} is not set:
+		send "[Core] Failed to check new version! Check internet connection." to console
+		stop
+	if {_v} = "{@version}":
+		send "[Core] No updates aviliable." to console
+		delete {csk.update}
+		delete {csk.latest}
+	else:
+		send "[Core] New version aviliable! {@version} -> %{_v}%" to console
+		set {csk.update} to true
+		set {csk.latest} to {_v}
+		send "Download: https://github.com/MCSV-Network/Core/" to console	
 
 #?debug log
 command /skcore [<text>]:
