@@ -7,6 +7,17 @@ options:
 	cskapi: https://github.com/MCSV-Network/Core/raw/main/cskversion
 #!=======[DO NOT EDIT]=======
 
+
+
+
+
+#*OPTIONS==============================
+
+	checkupdate: true #true -> check updates | false -> do not check updates (default: true)
+	showdebug: false #true -> send debug message to player | false -> do not send debug message to player (default: false)
+
+#*OPTIONS==============================
+
 #!TAB COMPLETE
 on tab complete of "/skcore":
 	set tab completions for position 1 to "purgelogs", "showlogs" and "help"
@@ -20,20 +31,21 @@ on skript load:
 	send "&b=================" to console
 
 	#*CHECK UPDATE===
-	send "[Core] Checking Updates..." to console
-	set {_v} to text from url "{@hv3api}"
-	if {_v} is not set:
-		send "[Core] Failed to check new version! Check internet connection." to console
-		stop
-	if {_v} = "{@version}":
-		send "[Core] No updates aviliable." to console
-		delete {csk.update}
-		delete {csk.latest}
-	else:
-		send "[Core] New version aviliable! {@version} -> %{_v}%" to console
-		set {csk.update} to true
-		set {csk.latest} to {_v}
-		send "Download: https://github.com/MCSV-Network/Core/" to console	
+	if {@checkupdate} is true:
+		send "[Core] Checking Updates..." to console
+		set {_v} to text from url "{@hv3api}"
+		if {_v} is not set:
+			send "[Core] Failed to check new version! Check internet connection." to console
+			stop
+		if {_v} = "{@version}":
+			send "[Core] No updates aviliable." to console
+			delete {csk.update}
+			delete {csk.latest}
+		else:
+			send "[Core] New version aviliable! {@version} -> %{_v}%" to console
+			set {csk.update} to true
+			set {csk.latest} to {_v}
+			send "Download: https://github.com/MCSV-Network/Core/" to console	
 
 #?debug log
 command /skcore [<text>]:
