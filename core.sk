@@ -159,6 +159,14 @@ function randomnumgen(l: number) :: text:
 		set {_num} to "%{_num}%%{_x}%"
 	return {_num}
 
+#Alphabet generatior(l is length)
+function randomAlphabet(l: number) :: text:
+	set {_alpb::*} to "A", ""Y" and "Z"
+	set {_abc} to ""
+	loop {_l} times:
+		set {_x} to ""
+
+
 #*Notification function
 function notification(p: player, t: text, s: number = 5):
 	set {_t2} to {_t}
