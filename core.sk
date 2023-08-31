@@ -204,5 +204,5 @@ function japanesetimespan(p: player, time: timespan):
 
 
 function randomcolor() :: text:
-	set {_x} to "a" or "b" or "c" or "d" or "e" or "f" or "1" or "2" or "3" or "4" or "5" or "6" or "7" or "8" or "9" or "0"
+	set {_x} to "&a" or "&b" or "&c" or "&d" or "&e" or "&f" or "&1" or "&2" or "&3" or "&4" or "&5" or "&6" or "&7" or "&8" or "&9" or "&0"
 	return {_x}
