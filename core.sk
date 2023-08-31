@@ -3,7 +3,7 @@
 
 #!=======[DO NOT EDIT]=======
 options:
-	version: 1.0.9
+	version: 1.1.0
 	cskapi: https://github.com/MCSV-Network/Core/raw/main/cskversion
 #!=======[DO NOT EDIT]=======
 
@@ -33,7 +33,7 @@ on skript load:
 	#*CHECK UPDATE===
 	if {@checkupdate} is true:
 		send "[Core] Checking Updates..." to console
-		set {_v} to text from url "{@hv3api}"
+		set {_v} to text from url "{@cskapi}"
 		if {_v} is not set:
 			send "[Core] Failed to check new version! Check internet connection." to console
 			stop
@@ -160,8 +160,9 @@ function randomnumgen(l: number) :: text:
 	return {_num}
 
 #Alphabet generatior(l is length)
+#未完成
 function randomAlphabet(l: number) :: text:
-	set {_alpb::*} to "A", ""Y" and "Z"
+	set {_alpb::*} to "A", "Y" and "Z"
 	set {_abc} to ""
 	loop {_l} times:
 		set {_x} to ""
@@ -177,7 +178,7 @@ function notification(p: player, t: text, s: number = 5):
 	notificationTimer({_p}, {_t2}, {_s})
 #*Notification Timer
 function notificationTimer(p: player, x: text, s: number):
-	wait {_s} seconds
+	wait {_s} second
 	remove {_x} from {notify.%{_p}%::*}
 #*For Notification test
 command /skcorenotify [<text>]:
