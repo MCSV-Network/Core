@@ -178,7 +178,7 @@ function notification(p: player, t: text, s: number = 5):
 	notificationTimer({_p}, {_t2}, {_s})
 #*Notification Timer
 function notificationTimer(p: player, x: text, s: number):
-	wait {_s} second
+	wait {_s} seconds
 	remove {_x} from {notify.%{_p}%::*}
 #*For Notification test
 command /skcorenotify [<text>]:
