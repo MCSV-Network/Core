@@ -3,7 +3,7 @@
 
 #!=======[DO NOT EDIT]=======
 options:
-	version: 1.1.0
+	version: 1.1.1
 	cskapi: https://github.com/MCSV-Network/Core/raw/main/cskversion
 #!=======[DO NOT EDIT]=======
 
@@ -178,7 +178,7 @@ function notification(p: player, t: text, s: number = 5):
 	notificationTimer({_p}, {_t2}, {_s})
 #*Notification Timer
 function notificationTimer(p: player, x: text, s: number):
-	wait {_s} seconds
+	wait {_s}
 	remove {_x} from {notify.%{_p}%::*}
 #*For Notification test
 command /skcorenotify [<text>]:
