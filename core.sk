@@ -3,7 +3,7 @@
 
 #!=======[DO NOT EDIT]=======
 options:
-	version: 1.1.1
+	version: 1.1.2
 	cskapi: https://github.com/MCSV-Network/Core/raw/main/cskversion
 #!=======[DO NOT EDIT]=======
 
@@ -167,7 +167,6 @@ function randomAlphabet(l: number) :: text:
 	loop {_l} times:
 		set {_x} to ""
 
-
 #*Notification function
 function notification(p: player, t: text, s: number = 5):
 	set {_t2} to {_t}
@@ -178,8 +177,15 @@ function notification(p: player, t: text, s: number = 5):
 	notificationTimer({_p}, {_t2}, {_s})
 #*Notification Timer
 function notificationTimer(p: player, x: text, s: number):
-	wait {_s}
+	debugforconsole("called timer")
+	loop {_s} times:
+		if {_s} is 0:
+			stop loop
+		subtract 1 from {_s}
+		wait a second
+		
 	remove {_x} from {notify.%{_p}%::*}
+	debugforconsole("notify list: %{notify.%{_p}%::*}%")
 #*For Notification test
 command /skcorenotify [<text>]:
 	permission: admin
